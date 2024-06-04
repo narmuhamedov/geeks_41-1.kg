@@ -1,0 +1,8 @@
+<h1>Имя - {{ emp_id.name }}</h1>
+<p>Email - {{ emp_id.email }}</p>
+<img src="{{ emp_id.image.url }}" width="350" height="250">
+<p>Информация о сотруднике - {{ emp_id.about_emp }}</p>
+<data>День рождения - {{ emp_id.date_of_birth }}</data>
+<a href="{{ emp_id.rezume.url }}" download>Скачать резюме</a>
+<a href="{{ emp_id.github }}">Перейти в GITHUB</a>
+<data>Дата создания поста - {{ emp_id.created_at }}</data>

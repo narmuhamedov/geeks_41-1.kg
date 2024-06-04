@@ -1,0 +1,11 @@
+<h1>Список сотрудников</h1>
+<hr>
+    {% for i in employees %}
+    <br>
+    <img src="{{ i.image.url }}" width="350" height="250">
+    <h2>Имя - {{ i.name }}</h2>
+    <p>Должность - {{ i.programmer_choices }}</p>
+    <a href="/employees/{{ i.id }}/">Подробнее</a>
+    <br>
+    {% endfor %}
+<hr>

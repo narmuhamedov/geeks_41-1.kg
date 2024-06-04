@@ -1,3 +1,4 @@
 from django.contrib import admin
+from news_blog.models import Employees
 
-# Register your models here.
+admin.site.register(Employees)

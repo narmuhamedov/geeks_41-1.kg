@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <a href="/eat_products/">Для еды</a>
+    <a href="">Для воды</a>
+<ul>
+    {% for i in products %}
+    <li>
+        <h1>{{ i.title }}</h1>
+        {%  for tag in i.tags.all %}
+        <p>#{{tag.name}}</p>
+        {% endfor %}
+    </li>
+
+    {% endfor %}
+</ul>
+</body>
+</html>

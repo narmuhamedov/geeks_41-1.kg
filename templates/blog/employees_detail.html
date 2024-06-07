@@ -1,8 +1,28 @@
-<h1>Имя - {{ emp_id.name }}</h1>
-<p>Email - {{ emp_id.email }}</p>
-<img src="{{ emp_id.image.url }}" width="350" height="250">
-<p>Информация о сотруднике - {{ emp_id.about_emp }}</p>
-<data>День рождения - {{ emp_id.date_of_birth }}</data>
-<a href="{{ emp_id.rezume.url }}" download>Скачать резюме</a>
-<a href="{{ emp_id.github }}">Перейти в GITHUB</a>
-<data>Дата создания поста - {{ emp_id.created_at }}</data>
+{% load static %}
+{% include "../header.html" %}
+<link rel="stylesheet" href="{% static 'css/emp_list.css' %}  ">
+<center>
+<div class="card" style="width: 18rem;">
+  <img src="{{ emp_id.image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"><h1 class="name_detail">{{ emp_id.name }}</h1></p>
+    <p class="card-text">{{ emp_id.email }}</p>
+    <p class="card-text">{{ emp_id.about_emp }}</p>
+    <p class="card-text">{{ emp_id.date_of_birth }}</p>
+    <p class="card-text">{{ emp_id.created_at }}</p>
+      <a href="{{ emp_id.rezume.url }}" download>Скачать резюме</a>
+      <a href="{{ emp_id.github }}">Перейти в GITHUB</a>
+  </div>
+</div>
+
+  <ul>
+    {% for i in emp_id.review_employees.all %}
+    <li>
+      <h1>{{ i.text }}</h1>
+      <p>{{ i.mark }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+</center>
+{% include "../footer.html" %}

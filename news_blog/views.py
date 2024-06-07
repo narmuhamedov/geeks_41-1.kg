@@ -1,6 +1,24 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from news_blog.models import Employees
+from news_blog.models import Employees, Poster, Product
+
+
+########## Многие ко многим ################
+
+def all_products(request):
+    if request.method == 'GET':
+        products = Product.objects.filter().order_by('-id')
+        return render(request, template_name='products/all_products.html',
+                      context={'products': products})
+
+
+def for_eat_view(request):
+    if request.method == 'GET':
+        eat_food = Product.objects.filter(tags__name='Еда').order_by('-id')
+        return render(request, template_name='products/for_eat_view.html',
+                      context={
+                          'eat_food': eat_food
+                      })
 
 
 # Функция для отображения не полной информации
@@ -8,11 +26,13 @@ from news_blog.models import Employees
 def employees_list_view(request):
     if request.method == 'GET':
         query = Employees.objects.filter().order_by('-id')
+        posters = Poster.objects.filter().order_by('-id')
         return render(
             request,
             template_name='blog/employees_list.html',
             context={
-                'employees': query
+                'employees': query,
+                'posters': posters
             }
         )
 

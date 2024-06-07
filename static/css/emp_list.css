@@ -1,0 +1,13 @@
+body{
+    background-color: violet;
+}
+
+.h1_class{
+    color: red;
+    font-weight: bold;
+    font-family: Verdana;
+}
+
+.name_detail{
+    color: red;
+}

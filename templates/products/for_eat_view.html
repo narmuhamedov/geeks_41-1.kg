@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for i in eat_food %}
+    <li>
+        <h1>{{ i.title }}</h1>
+        {%  for tag in i.tags.all %}
+        <p>#{{tag.name}}</p>
+        {% endfor %}
+    </li>
+
+    {% endfor %}
+</ul>
+</body>
+</html>

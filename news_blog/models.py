@@ -1,6 +1,14 @@
 from django.db import models
 
 
+class Poster(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='sliders/')
+
+    def __str__(self):
+        return self.name
+
+
 class Employees(models.Model):
     PROGRAMMER_CHOICES = (
         ("FULLSTACK", "FULLSTACK"),
@@ -27,3 +35,30 @@ class Employees(models.Model):
     class Meta:
         verbose_name = 'сотрудника'
         verbose_name_plural = 'сотрудники'
+
+
+class ReviewEmployees(models.Model):
+    employee = models.ForeignKey(Employees, on_delete=models.CASCADE,
+                                 related_name='review_employees')
+    text = models.TextField()
+    mark = models.IntegerField(default=5)
+
+    def __str__(self):
+        return f'{self.employee} - {self.mark}'
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Product(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    price = models.PositiveIntegerField(default=100)
+    tags = models.ManyToManyField(Tag)
+
+    def __str__(self):
+        return f'{self.title} - {self.price}'

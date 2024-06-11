@@ -9,6 +9,10 @@
     {% endfor %}
 
     <h1 class="h1_class">Список сотрудников</h1>
+    <button type="button" class="btn btn-secondary">
+        <a href="/create_employee/" class="add_emp">Добавить сотрудника</a>
+    </button>
+    <br><br>
 
     {% for i in employees %}
     <div class="card" style="width: 18rem;">
@@ -17,6 +21,9 @@
             <h5 class="card-title">{{ i.name }}</h5>
             <p class="card-text">{{ i.programmer_choices }}</p>
             <a href="/employees/{{ i.id }}/" class="btn btn-primary">Подробнее</a>
+            <a href="/employees/{{ i.id }}/delete/" class="btn btn-primary">Удалить</a>
+            <br><br>
+            <a href="/employees/{{ i.id }}/update/" class="btn btn-primary">Редактировать</a>
         </div>
     </div>
     <br>

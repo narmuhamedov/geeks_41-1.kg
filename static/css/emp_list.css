@@ -11,3 +11,8 @@ body{
 .name_detail{
     color: red;
 }
+
+.add_emp{
+    color: white;
+    text-decoration: none;
+}

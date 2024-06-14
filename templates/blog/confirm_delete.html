@@ -1,0 +1,10 @@
+{% include "../header.html" %}
+
+<h1>Вы уверены что хотите удалить этого сотрудника</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit">Да</button>
+    <button><a href="/employees/">Нет</a></button>
+</form>
+
+{% include "../footer.html" %}

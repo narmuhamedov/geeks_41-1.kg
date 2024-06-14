@@ -2,10 +2,13 @@
 {% include "../header.html" %}
 <link rel="stylesheet" href="{% static 'css/emp_list.css' %}  ">
 <center>
-    
+
+
+
+
     {% for i in posters %}
     <h1>{{ i.name }}</h1>
-    <img src="{{i.image.url}}" alt="">
+    <img src="{{i.image.url}}" alt="" width="200" height="150">
     {% endfor %}
 
     <h1 class="h1_class">Список сотрудников</h1>

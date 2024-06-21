@@ -15,9 +15,12 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get("DEBUG") == 'on':
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["radomirnarmukhamedov123.pythonanywhere.com"]
 
 # Application definition
 

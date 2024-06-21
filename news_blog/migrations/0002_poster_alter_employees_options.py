@@ -6,20 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news_blog', '0001_initial'),
+        ("news_blog", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Poster',
+            name="Poster",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('image', models.ImageField(upload_to='sliders/')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("image", models.ImageField(upload_to="sliders/")),
             ],
         ),
         migrations.AlterModelOptions(
-            name='employees',
-            options={'verbose_name': 'сотрудника', 'verbose_name_plural': 'сотрудники'},
+            name="employees",
+            options={"verbose_name": "сотрудника", "verbose_name_plural": "сотрудники"},
         ),
     ]

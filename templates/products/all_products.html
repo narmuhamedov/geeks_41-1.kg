@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
- <a href="/eat_products/">Для еды</a>
-    <a href="">Для воды</a>
-<ul>
-    {% for i in products %}
-    <li>
-        <h1>{{ i.title }}</h1>
-        {%  for tag in i.tags.all %}
-        <p>#{{tag.name}}</p>
-        {% endfor %}
-    </li>
+{% load static %}
+{% include "../header.html" %}
+<link rel="stylesheet" href="{% static 'css/all_products.css' %}  ">
+     <div class="container">
+        <div class="buttons">
+            <a href="/eat_products/" class="btn">Для еды</a>
+            <a href="#" class="btn">Для воды</a>
+        </div>
+        <ul class="product-list">
+            {% for i in products %}
+            <li class="product-item">
+                <h1>{{ i.title }}</h1>
+                {% for tag in i.tags.all %}
+                <p>#{{tag.name}}</p>
+                {% endfor %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% include "../footer.html" %}

@@ -7,17 +7,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news_blog', '0002_poster_alter_employees_options'),
+        ("news_blog", "0002_poster_alter_employees_options"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ReviewEmployees',
+            name="ReviewEmployees",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField()),
-                ('mark', models.IntegerField(default=5)),
-                ('employee', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='review_employees', to='news_blog.employees')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("text", models.TextField()),
+                ("mark", models.IntegerField(default=5)),
+                (
+                    "employee",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="review_employees",
+                        to="news_blog.employees",
+                    ),
+                ),
             ],
         ),
     ]
